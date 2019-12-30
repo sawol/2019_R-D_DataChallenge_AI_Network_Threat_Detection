@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)http://datachallenge.kr/challenge19/convergence-security/network/evaluation/ -->
+<html lang="ko-KR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=10">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://datachallenge.kr/xmlrpc.php">
+	<title>AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019</title>
+
+<!-- WordPress KBoard plugin 5.3.4 - http://www.cosmosfarm.com/products/kboard -->
+<link rel="alternate" href="http://datachallenge.kr/wp-content/plugins/kboard/rss.php" type="application/rss+xml" title="정보보호 R&amp;D 데이터 챌린지 2019 » KBoard 통합 피드">
+<!-- WordPress KBoard plugin 5.3.4 - http://www.cosmosfarm.com/products/kboard -->
+
+<link rel="dns-prefetch" href="http://cdnjs.cloudflare.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="정보보호 R&amp;D 데이터 챌린지 2019 » 피드" href="http://datachallenge.kr/feed/">
+<link rel="alternate" type="application/rss+xml" title="정보보호 R&amp;D 데이터 챌린지 2019 » 댓글 피드" href="http://datachallenge.kr/comments/feed/">
+		<script src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/f.txt"></script><script src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/osd.js.다운로드"></script><script type="text/javascript" async="" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/analytics.js.다운로드"></script><script src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/f(1).txt" id="google_shimpl"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/datachallenge.kr\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.5"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/wp-emoji-release.min.js.다운로드" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="advanced-cf7-db-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/advanced-cf7-db-public.css" type="text/css" media="all">
+<link rel="stylesheet" id="contact-form-7-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="cf7cf-style-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpdm-bootstrap-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpdm-front-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/front.css" type="text/css" media="all">
+<link rel="stylesheet" id="mathjax-scrollmath-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/scrollmath.css" type="text/css" media="all">
+<link rel="stylesheet" id="jquery-ui-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery-ui.css" type="text/css" media="all">
+<link rel="stylesheet" id="insert-math-dialog-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/dialog.css" type="text/css" media="all">
+<link rel="stylesheet" id="accordioncssfree-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.accordion.css" type="text/css" media="all">
+<link rel="stylesheet" id="awsm-team-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/team.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="megamenu-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="vantage-style-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/style(2).css" type="text/css" media="all">
+<link rel="stylesheet" id="siteorigin-mobilenav-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/mobilenav.css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/default.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="forget-about-shortcode-buttons-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/button-styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="kboard-comments-skin-default-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/style(3).css" type="text/css" media="all">
+<link rel="stylesheet" id="kboard-editor-media-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/editor_media.css" type="text/css" media="all">
+<link rel="stylesheet" id="kboard-skin-default-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/style(4).css" type="text/css" media="all">
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery-migrate.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/advanced-cf7-db-public.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/bootstrap.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/front.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/chosen.jquery.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/config.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/MathJax.js.다운로드"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.accordion.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.flexslider.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.touchSwipe.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.theme-main.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.fitvids.min.js.다운로드"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='http://datachallenge.kr/wp-content/themes/vantage/js/html5.min.js?ver=3.7.3'></script>
+<![endif]-->
+<!--[if (gte IE 6)&(lte IE 8)]>
+<script type='text/javascript' src='http://datachallenge.kr/wp-content/themes/vantage/js/selectivizr.min.js?ver=1.0.2'></script>
+<![endif]-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var mobileNav = {"search":{"url":"http:\/\/datachallenge.kr","placeholder":"Search"},"text":{"navigate":"Menu","back":"Back","close":"Close"},"nextIconUrl":"http:\/\/datachallenge.kr\/wp-content\/themes\/vantage\/inc\/mobilenav\/images\/next.png","mobileMenuClose":"<i class=\"fa fa-times\"><\/i>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/mobilenav.min.js.다운로드"></script>
+<meta name="generator" content="WordPress Download Manager 2.9.61">
+<link rel="https://api.w.org/" href="http://datachallenge.kr/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://datachallenge.kr/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://datachallenge.kr/wp-includes/wlwmanifest.xml"> 
+<link rel="canonical" href="http://datachallenge.kr/challenge19/convergence-security/network/evaluation/">
+<link rel="shortlink" href="http://datachallenge.kr/?p=1830">
+<link rel="alternate" type="application/json+oembed" href="http://datachallenge.kr/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdatachallenge.kr%2Fchallenge19%2Fconvergence-security%2Fnetwork%2Fevaluation%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://datachallenge.kr/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdatachallenge.kr%2Fchallenge19%2Fconvergence-security%2Fnetwork%2Fevaluation%2F&amp;format=xml">
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Add your CSS code here.
+
+div#main .faq-accordion .faq-title h4{
+    	font-size: 12pt;
+}
+*/ 
+
+div#main .faq-accordion .faq-main {
+	width: 80%;
+ 		
+}
+
+
+.faq-title h4 {
+ font-size: 12pt !important;
+}
+
+</style>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/*
+header#masthead .hgroup .support-text {
+  color: #0e2d68
+  font-style: bold;
+}
+*/
+
+header#masthead .hgroup .site-title {
+  font-weight: 800;
+}
+
+
+header#masthead .hgroup .logo {
+float: none;
+}
+header#masthead .hgroup h1 {
+text-align: center;
+}
+
+
+#colophon #theme-attribution {
+display: none;
+}
+
+.mobile-nav-frame form.search{
+  display: none;
+}
+
+
+
+
+.widget_circleicon-widget .circle-icon-box p.text{
+	font-size: 14px;
+}
+
+
+.entry-content p, .entry-content > ul, .entry-content > ol, .entry-content > li, .entry-content > dl, .entry-content pre, .entry-content code, .entry-content blockquote{
+	font-size: 14px;
+}</style>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* 
+    width: 50%;
+*/ 
+
+.wpcf7 form {
+  	font-size: 10pt;
+  	color: #000000;
+
+	padding: 0.5%;
+	width: 60%;
+	background-color: #f5f5f5;
+
+}
+
+
+.wpcf7-textarea,
+.wpcf7-text{
+  	margin-left: 11px;
+
+}
+</style>
+<!-- end Simple Custom CSS and JS -->
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* text-align: center;
+th 첫행(header)
+td 행
+tr 열
+*/
+
+
+/*모든 테이블 글자크기 설정*/
+.tablepress th,
+.tablepress td {
+  	font-size: 11.5pt;
+}
+
+.tablepress-id-17 td {
+  	font-size: 9pt;
+}
+
+
+/*백그라운드 컬러 및 가운데 정렬 설정*/
+.tablepress-id-1 .row-1 th,
+.tablepress-id-1 .column-1,
+.tablepress-id-2 .row-1 td,
+.tablepress-id-6 .row-1 th,
+.tablepress-id-7 .row-1 th,
+.tablepress-id-8 .row-1 th,
+.tablepress-id-9 .row-1 th,
+.tablepress-id-10 .row-1 th,
+.tablepress-id-11 .row-1 td,
+.tablepress-id-11 .row-2 td,
+.tablepress-id-11 .column-1,
+.tablepress-id-11 .column-2,
+.tablepress-id-12 .row-1 td,
+.tablepress-id-12 .row-2 td,
+.tablepress-id-12 .column-1,
+.tablepress-id-12 .column-2,
+.tablepress-id-13 .row-1 td,
+.tablepress-id-13 .row-2 td,
+.tablepress-id-13 .column-1,
+.tablepress-id-13 .column-2,
+.tablepress-id-18 .row-1 th,
+.tablepress-id-19 .row-1 th,
+.tablepress-id-21 .row-1 td,
+.tablepress-id-21 .row-2 td,
+.tablepress-id-21 .row-3 td,
+.tablepress-id-2 .row-2 td,
+.tablepress-id-2 .row-3 td,
+.tablepress-id-22 .row-1 th,
+.tablepress-id-23 .row-1 th,
+.tablepress-id-24 .row-1 th,
+.tablepress-id-25 .row-1 th
+{
+	background-color: #eeeeee;
+  	text-align: center;
+}
+
+.tablepress-id-17 .row-1 td,
+{
+	background-color: #eeeeee;
+
+}
+
+
+
+
+  
+  
+/*가운데 정렬*/
+.tablepress-id-1 .column-2,
+.tablepress-id-2 td,
+.tablepress-id-6 td,
+.tablepress-id-11 td,
+.tablepress-id-12 td,
+.tablepress-id-13 td,
+.tablepress-id-2 td,
+.tablepress-id-21 td{
+ 	text-align: center;
+}
+
+/*중간정렬*/
+.tablepress-id-1 .column-1,
+.tablepress-id-1 .column-2,
+.tablepress-id-7 .column-1,
+.tablepress-id-7 .column-2,
+.tablepress-id-8 .column-1,
+.tablepress-id-8 .column-2,
+.tablepress-id-11 .column-1,
+.tablepress-id-12 .column-1,
+.tablepress-id-12 .column-2,
+.tablepress-id-12 .column-3,
+.tablepress-id-13 .column-1,
+.tablepress-id-2 .column-1,
+.tablepress-id-2 .column-2,
+.tablepress-id-2 .column-3,
+.tablepress-id-21 .column-1,
+.tablepress-id-21 .column-4,
+.tablepress-id-21 .column-5,
+.tablepress-id-21 .column-2,
+.tablepress-id-21 .column-3
+{
+
+	vertical-align: middle;
+}
+
+
+.tablepress-id-6 .column-1,
+.tablepress-id-6 .column-2,
+.tablepress-id-7 .column-1,
+.tablepress-id-7 .column-2,
+.tablepress-id-8 .column-1,
+.tablepress-id-8 .column-2
+{
+  	width: 50%;
+}
+
+.tablepress-id-21 .column-1,
+.tablepress-id-21 .column-2,
+.tablepress-id-21 .column-3,
+.tablepress-id-21 .column-4,
+.tablepress-id-21 .column-5
+
+{
+  	width: 20%;
+}
+
+
+
+
+
+</style>
+<!-- end Simple Custom CSS and JS -->
+
+        <script>
+            var wpdm_site_url = 'http://datachallenge.kr/';
+            var wpdm_home_url = 'http://datachallenge.kr/';
+            var ajax_url = 'http://datachallenge.kr/wp-admin/admin-ajax.php';
+            var wpdm_ajax_url = 'http://datachallenge.kr/wp-admin/admin-ajax.php';
+            var wpdm_ajax_popup = '0';
+        </script>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">		<style type="text/css">
+			.so-mobilenav-mobile + * { display: none; }
+			@media screen and (max-width: 480px) { .so-mobilenav-mobile + * { display: block; } .so-mobilenav-standard + * { display: none; } }
+		</style>
+		<style type="text/css" media="screen">
+		#footer-widgets .widget { width: 100%; }
+		#masthead-widgets .widget { width: 100%; }
+	</style>
+	<style type="text/css" id="vantage-footer-widgets">#footer-widgets aside { width : 100%; } </style> <style type="text/css" id="customizer-css">#masthead .hgroup h1, #masthead.masthead-logo-in-menu .logo > h1 { font-size: px } #masthead .hgroup .support-text { font-size: 14px } .entry-content { font-size: 15px } .entry-content h6 { font-size: 15px } .entry-content a:hover, .entry-content a:focus, .entry-content a:active, #secondary a:hover, #masthead .hgroup a:hover, #masthead .hgroup a:focus, #masthead .hgroup a:active, .comment-form .logged-in-as a:hover, .comment-form .logged-in-as a:focus, .comment-form .logged-in-as a:active { color: #529990 } .main-navigation ul { text-align: center } .main-navigation ul li:hover > a, #search-icon #search-icon-icon:hover { background-color: #00afef } .main-navigation ul ul li:hover > a { background-color: #47bbe5 } #header-sidebar .widget_nav_menu ul.menu > li > ul.sub-menu { border-top-color: #00bde2 } a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button, #infinite-handle span button { text-shadow: none } a.button, button, html input[type="button"], input[type="reset"], input[type="submit"], .post-navigation a, #image-navigation a, article.post .more-link, article.page .more-link, .paging-navigation a, .woocommerce #page-wrapper .button, .woocommerce a.button, .woocommerce .checkout-button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #infinite-handle span { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none } </style><script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/wp-embed.min.js.다운로드"></script>
+<style type="text/css">/** Mega Menu CSS: fs **/</style>
+<script async="" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/js"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-125621993-1');
+</script><link rel="preload" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/f(2).txt" as="script"><script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/f(2).txt"></script><link rel="preload" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/f(3).txt" as="script"><script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/f(3).txt"></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+
+
+
+<body class="page-template-default page page-id-1830 page-child parent-pageid-1638 mega-menu-max-mega-menu-1 mega-menu-max-mega-menu-3 mega-menu-max-mega-menu-4 mega-menu-max-mega-menu-5 mega-menu-max-mega-menu-2 mega-menu-max-mega-menu-7 mega-menu-max-mega-menu-8 mega-menu-max-mega-menu-9 mega-menu-max-mega-menu-11 mega-menu-max-mega-menu-10 mega-menu-max-mega-menu-12 mega-menu-max-mega-menu-13 mega-menu-max-mega-menu-14 mega-menu-max-mega-menu-15 mega-menu-max-mega-menu-16 responsive layout-full no-sidebar page-layout-default mobilenav"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"><br></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+
+<div id="page-wrapper">
+
+	
+	
+		<header id="masthead" class="site-header" role="banner">
+
+	<div class="hgroup full-container ">
+
+								<a href="http://datachallenge.kr/" title="정보보호 R&amp;D 데이터 챌린지 2019" rel="home" class="logo"><h1 class="site-title">정보보호 R&amp;D 데이터 챌린지 2019</h1></a>
+			
+				<div class="support-text">
+									</div>
+
+			
+		
+	</div><!-- .hgroup.full-container -->
+
+	
+<nav role="navigation" class="site-navigation main-navigation primary use-sticky-menu" style="">
+
+	<div class="full-container">
+				
+					<div id="so-mobilenav-standard-1" data-id="1" class="so-mobilenav-standard"></div><div class="menu-challenge19_main-container"><ul id="menu-challenge19_main" class="menu"><li id="menu-item-1702" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1702"><a href="http://datachallenge.kr/challenge19/"><span class="icon"></span>챌린지 소개</a>
+<ul class="sub-menu" style="display: none; opacity: 0;">
+	<li id="menu-item-1703" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-page-ancestor menu-item-1703"><a href="http://datachallenge.kr/">개요</a></li>
+	<li id="menu-item-1668" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1668"><a href="http://datachallenge.kr/challenge19/notice/">공지사항</a></li>
+	<li id="menu-item-1669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1669"><a href="http://datachallenge.kr/challenge19/news/">언론 소식</a></li>
+	<li id="menu-item-1680" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1680"><a href="http://datachallenge.kr/challenge18/"><span class="icon"></span>예년 챌린지 (2018년)</a></li>
+	<li id="menu-item-1712" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1712"><a href="http://datachallenge.kr/challenge17/"><span class="icon"></span>예년 챌린지 (2017년)</a></li>
+</ul>
+</li>
+<li id="menu-item-1726" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1726"><a href="http://datachallenge.kr/challenge19/rd-datachallenge/malware/introduction"><span class="icon"></span>R&amp;D 데이터챌린지</a>
+<ul class="sub-menu">
+	<li id="menu-item-1729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1729"><a href="http://datachallenge.kr/challenge19/rd-datachallenge/malware/introduction"><span class="icon"></span>AI기반 악성코드 탐지</a></li>
+	<li id="menu-item-1730" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1730"><a href="http://datachallenge.kr/challenge19/rd-datachallenge/vulnerability/introduction"><span class="icon"></span>AI기반 취약점 자동탐지</a></li>
+	<li id="menu-item-1738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1738"><a href="http://datachallenge.kr/challenge19/rd-datachallenge/gamebot/introduction"><span class="icon"></span>게임봇 탐지</a></li>
+</ul>
+</li>
+<li id="menu-item-1727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1727"><a href="http://datachallenge.kr/challenge19/convergence-security/network/introduction"><span class="icon"></span>융합보안챌린지</a>
+<ul class="sub-menu">
+	<li id="menu-item-1732" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1732"><a href="http://datachallenge.kr/challenge19/convergence-security/network/introduction"><span class="icon"></span>AI기반 네트워크 위협 탐지</a></li>
+	<li id="menu-item-1733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1733"><a href="http://datachallenge.kr/challenge19/convergence-security/vehicle/introduction"><span class="icon"></span>자동차용 침입 탐지</a></li>
+</ul>
+</li>
+<li id="menu-item-1721" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1721"><a href="http://datachallenge.kr/faq/">FAQ</a></li>
+</ul></div><div id="so-mobilenav-mobile-1" data-id="1" class="so-mobilenav-mobile"></div><div class="menu-mobilenav-container"><ul id="mobile-nav-item-wrap-1" class="menu"><li><a href="http://datachallenge.kr/challenge19/convergence-security/network/evaluation/#" class="mobilenav-main-link" data-id="1"><span class="mobile-nav-icon"></span>Menu</a></li></ul></div>			</div>
+</nav><!-- .site-navigation .main-navigation -->
+
+</header><!-- #masthead .site-header -->
+
+	
+	
+	
+	
+	<div id="main" class="site-main">
+		<div class="full-container">
+			
+<div id="primary" class="content-area">
+	<div id="content" class="site-content" role="main">
+
+		
+			
+<article id="post-1830" class="post-1830 page type-page status-publish post">
+
+	<div class="entry-main">
+
+		
+		
+		<div class="entry-content">
+			<div id="mega-menu-wrap-max_mega_menu_15" class="mega-menu-wrap"><div class="mega-menu-toggle" tabindex="0"><div class="mega-toggle-block mega-menu-toggle-block mega-toggle-block-right mega-toggle-block-1" id="mega-toggle-block-1"></div></div><ul id="mega-menu-max_mega_menu_15" class="mega-menu mega-menu-horizontal" data-event="hover_intent" data-effect="fade_up" data-effect-speed="200" data-second-click="close" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="600" data-unbind="true"><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-1834" id="mega-menu-item-1834"><a class="mega-menu-link" href="http://datachallenge.kr/challenge19/convergence-security/network/introduction/" tabindex="0">챌린지 소개</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-1835" id="mega-menu-item-1835"><a class="mega-menu-link" href="http://datachallenge.kr/challenge19/convergence-security/network/tutorial/" tabindex="0">튜토리얼</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-current-menu-item mega-page_item mega-page-item-1830 mega-current_page_item mega-align-bottom-left mega-menu-flyout mega-menu-item-1836" id="mega-menu-item-1836"><a class="mega-menu-link" href="http://datachallenge.kr/challenge19/convergence-security/network/evaluation/" tabindex="0">평가방법</a></li></ul></div>
+
+
+<h1 style="text-align: center">AI 기반 네트워크 위협 탐지</h1>
+<p style="text-align: center"><strong><span style="font-size: 20px">&lt;높은 탐지 정확도로 대용량 악성/정상 트래픽을 분석하는 AI 기반의 네트위크 위협 탐지 알고리즘 개발 &gt;</span></strong></p>
+<h2>&nbsp;</h2>
+<h2>예선</h2>
+<hr>
+<p><span style="font-size: 24px;background-color: #ff99cc">탐지율 100%</span></p>
+<p style="padding-left: 40px">※ 공격 유형 탐지 시 추가점수 부여</p>
+<p>&nbsp;</p>
+<h2>본선</h2>
+<hr>
+<p><span style="font-size: 24px;background-color: #ff99cc">탐지율(80%) + 발표점수(20%) </span></p>
+<p style="padding-left: 40px">※ 공격 유형 탐지 시 추가점수 부여<br>※ 발표 점수 : 알고리즘 설명문서, 발표자료 검토를 통한 자동화 및 알고리즘 창의성 평가<br>※ 편법여부 확인을 위한 알고리즘 설명문서 검토</p>
+<p>&nbsp;</p>
+<h2>평가산정식(탐지율)</h2>
+<hr>
+<p>전체 결과 중 정상패킷과 악성패킷을 정확히 탐지한 비율을 측정합니다.</p>
+
+<table id="tablepress-42" class="tablepress tablepress-id-42">
+<tbody>
+<tr class="row-1">
+	<td colspan="2" rowspan="2" class="column-1"><strong>카테고리</strong></td><td colspan="2" class="column-3"><strong>실제결과</strong></td>
+</tr>
+<tr class="row-2">
+	<td class="column-3"><strong>악성패킷</strong></td><td class="column-4"><strong>정상패킷</strong></td>
+</tr>
+<tr class="row-3">
+	<td rowspan="2" class="column-1"><strong>실험결과</strong></td><td class="column-2"><strong>악성패킷</strong></td><td class="column-3"><em>True Positive(TP)</em></td><td class="column-4"><em>False Positive(FP)</em></td>
+</tr>
+<tr class="row-4">
+	<td class="column-2"><strong>정상패킷</strong></td><td class="column-3"><em>False Negative(FN)</em></td><td class="column-4"><em>True Negative(TN)</em></td>
+</tr>
+</tbody>
+</table>
+
+<p style="padding-left: 40px">※ True Positive : 실제 악성패킷을 악성패킷으로 정확히 예측<br>※ True Negative : 실제 정상패킷을 정상패킷으로 정확히 예측<br>※ False Positive : 실제 정상패킷을 악성패킷으로 예측<br>※ False Negative : 실제 악성패킷을 정상패킷으로 예측</p>
+<p style="padding-left: 40px">※정확도 측정을 위해 <strong>F1-Score(탐지율)</strong>를 사용합니다.</p>
+<p style="padding-left: 40px"><span class="MathJax_Preview" style="display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="text-align: center;"><nobr><span class="math" id="MathJax-Span-1" style="width: 20.36em; display: inline-block;"><span style="display: inline-block; position: relative; width: 16.967em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.658em, 1016.97em, 3.158em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math-italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mn" id="MathJax-Span-4" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.241em;">−</span><span class="mi" id="MathJax-Span-6" style="font-family: MathJax_Math-italic; padding-left: 0.241em;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span><span class="mi" id="MathJax-Span-7" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-8" style="font-family: MathJax_Math-italic;">o</span><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Math-italic;">r</span><span class="mi" id="MathJax-Span-10" style="font-family: MathJax_Math-italic;">e</span><span class="mo" id="MathJax-Span-11" style="font-family: MathJax_Main; padding-left: 0.301em;">=</span><span class="mn" id="MathJax-Span-12" style="font-family: MathJax_Main; padding-left: 0.301em;">2</span><span class="mo" id="MathJax-Span-13" style="font-family: MathJax_Main; padding-left: 0.241em;">×</span><span class="mfrac" id="MathJax-Span-14" style="padding-left: 0.241em;"><span style="display: inline-block; position: relative; width: 8.515em; height: 0px; margin-right: 0.122em; margin-left: 0.122em;"><span style="position: absolute; clip: rect(3.098em, 1008.34em, 4.17em, -999.997em); top: -4.64em; left: 50%; margin-left: -4.164em;"><span class="mrow" id="MathJax-Span-15"><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-17" style="font-family: MathJax_Math-italic;">r</span><span class="mi" id="MathJax-Span-18" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-19" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-20" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-21" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-23" style="font-family: MathJax_Math-italic;">o</span><span class="mi" id="MathJax-Span-24" style="font-family: MathJax_Math-italic;">n</span><span class="mo" id="MathJax-Span-25" style="font-family: MathJax_Main; padding-left: 0.241em;">×</span><span class="mi" id="MathJax-Span-26" style="font-family: MathJax_Math-italic; padding-left: 0.241em;">R</span><span class="mi" id="MathJax-Span-27" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-28" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-29" style="font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-30" style="font-family: MathJax_Math-italic;">l</span><span class="mi" id="MathJax-Span-31" style="font-family: MathJax_Math-italic;">l</span></span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; clip: rect(3.098em, 1008.34em, 4.229em, -999.997em); top: -3.271em; left: 50%; margin-left: -4.164em;"><span class="mrow" id="MathJax-Span-32"><span class="mi" id="MathJax-Span-33" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-34" style="font-family: MathJax_Math-italic;">r</span><span class="mi" id="MathJax-Span-35" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-36" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-37" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-38" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-39" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-40" style="font-family: MathJax_Math-italic;">o</span><span class="mi" id="MathJax-Span-41" style="font-family: MathJax_Math-italic;">n</span><span class="mo" id="MathJax-Span-42" style="font-family: MathJax_Main; padding-left: 0.241em;">+</span><span class="mi" id="MathJax-Span-43" style="font-family: MathJax_Math-italic; padding-left: 0.241em;">R</span><span class="mi" id="MathJax-Span-44" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-45" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-46" style="font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-47" style="font-family: MathJax_Math-italic;">l</span><span class="mi" id="MathJax-Span-48" style="font-family: MathJax_Math-italic;">l</span></span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; clip: rect(0.836em, 1008.51em, 1.253em, -999.997em); top: -1.307em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 8.515em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.074em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.996em; border-left: 0px solid; width: 0px; height: 2.718em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-1">F1-Score = 2×\frac{Precision×Recall}{Precision+Recall}</script></p>
+<p style="padding-left: 40px">&nbsp;* Precision(정확률) : 제안한 알고리즘이 공격을 판단했을 때 실제 공격이 이루어진 비율(정답 인정수/참가자가 예측한 공격수)<br>&nbsp;* Recall(재현율) : 실제 공격이 이루어졌을 때 제안된 알고리즘이 공격을 판단하는 비율(정답 인정수/실제 공격수)</p>
+<p><span class="MathJax_Preview" style="display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="text-align: center;"><nobr><span class="math" id="MathJax-Span-49" style="width: 23.574em; display: inline-block;"><span style="display: inline-block; position: relative; width: 19.646em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.658em, 1019.65em, 3.158em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-50"><span class="mi" id="MathJax-Span-51" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-52" style="font-family: MathJax_Math-italic;">r</span><span class="mi" id="MathJax-Span-53" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-54" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-55" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-56" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-57" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-58" style="font-family: MathJax_Math-italic;">o</span><span class="mi" id="MathJax-Span-59" style="font-family: MathJax_Math-italic;">n</span><span class="mo" id="MathJax-Span-60" style="font-family: MathJax_Main; padding-left: 0.301em;">=</span><span class="mfrac" id="MathJax-Span-61" style="padding-left: 0.301em;"><span style="display: inline-block; position: relative; width: 4.348em; height: 0px; margin-right: 0.122em; margin-left: 0.122em;"><span style="position: absolute; clip: rect(3.158em, 1001.43em, 4.17em, -999.997em); top: -4.64em; left: 50%; margin-left: -0.711em;"><span class="mrow" id="MathJax-Span-62"><span class="mi" id="MathJax-Span-63" style="font-family: MathJax_Math-italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-64" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span></span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; clip: rect(3.158em, 1004.23em, 4.229em, -999.997em); top: -3.271em; left: 50%; margin-left: -2.08em;"><span class="mrow" id="MathJax-Span-65"><span class="mi" id="MathJax-Span-66" style="font-family: MathJax_Math-italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-67" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mo" id="MathJax-Span-68" style="font-family: MathJax_Main; padding-left: 0.241em;">+</span><span class="mi" id="MathJax-Span-69" style="font-family: MathJax_Math-italic; padding-left: 0.241em;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-70" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span></span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; clip: rect(0.836em, 1004.35em, 1.253em, -999.997em); top: -1.307em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 4.348em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.074em;"></span></span></span></span><span class="mo" id="MathJax-Span-71" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-72" style="font-family: MathJax_Math-italic; padding-left: 0.182em;">R</span><span class="mi" id="MathJax-Span-73" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-74" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-75" style="font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-76" style="font-family: MathJax_Math-italic;">l</span><span class="mi" id="MathJax-Span-77" style="font-family: MathJax_Math-italic;">l</span><span class="mo" id="MathJax-Span-78" style="font-family: MathJax_Main; padding-left: 0.301em;">=</span><span class="mfrac" id="MathJax-Span-79" style="padding-left: 0.301em;"><span style="display: inline-block; position: relative; width: 4.467em; height: 0px; margin-right: 0.122em; margin-left: 0.122em;"><span style="position: absolute; clip: rect(3.158em, 1001.43em, 4.17em, -999.997em); top: -4.64em; left: 50%; margin-left: -0.711em;"><span class="mrow" id="MathJax-Span-80"><span class="mi" id="MathJax-Span-81" style="font-family: MathJax_Math-italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-82" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span></span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; clip: rect(3.158em, 1004.35em, 4.229em, -999.997em); top: -3.271em; left: 50%; margin-left: -2.199em;"><span class="mrow" id="MathJax-Span-83"><span class="mi" id="MathJax-Span-84" style="font-family: MathJax_Math-italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-85" style="font-family: MathJax_Math-italic;">P<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mo" id="MathJax-Span-86" style="font-family: MathJax_Main; padding-left: 0.241em;">+</span><span class="mi" id="MathJax-Span-87" style="font-family: MathJax_Math-italic; padding-left: 0.241em;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.122em;"></span></span><span class="mi" id="MathJax-Span-88" style="font-family: MathJax_Math-italic;">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.063em;"></span></span></span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; clip: rect(0.836em, 1004.47em, 1.253em, -999.997em); top: -1.307em; left: 0em;"><span style="display: inline-block; overflow: hidden; vertical-align: 0em; border-top: 1.3px solid; width: 4.467em; height: 0px;"></span><span style="display: inline-block; width: 0px; height: 1.074em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.996em; border-left: 0px solid; width: 0px; height: 2.718em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-2">Precision=\frac{TP}{TP+FP}, Recall=\frac{TP}{TP+FN}</script></p>
+
+
+<p></p>
+					</div><!-- .entry-content -->
+
+		
+	</div>
+
+</article><!-- #post-1830 -->
+
+			
+		
+	</div><!-- #content .site-content -->
+</div><!-- #primary .content-area -->
+
+
+<div id="secondary" class="widget-area" role="complementary">
+			</div><!-- #secondary .widget-area -->
+					</div><!-- .full-container -->
+	</div><!-- #main .site-main -->
+
+	
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+
+			<div id="footer-widgets" class="full-container">
+			<aside id="siteorigin-panels-builder-4" class="widget widget_siteorigin-panels-builder"><div id="pl-w5d886871ebf93" class="panel-layout"><div id="pg-w5d886871ebf93-0" class="panel-grid panel-no-style"><div id="pgc-w5d886871ebf93-0-0" class="panel-grid-cell"><div id="panel-w5d886871ebf93-0-0-0" class="so-panel widget widget_text panel-first-child panel-last-child" data-index="0"><div id="HCRL" class="panel-widget-style panel-widget-style-for-w5d886871ebf93-0-0-0">			<div class="textwidget"><div style="text-align: center;">Operated by the <a href="http://ocslab.hksecurity.net/">Hacking and Countermeasure Research Lab.</a>, Korea University.</div>
+</div>
+		</div></div></div></div></div></aside>		</div><!-- #footer-widgets -->
+	
+	
+	<div id="theme-attribution">A <a href="https://siteorigin.com/">SiteOrigin</a> Theme</div>
+</footer><!-- #colophon .site-footer -->
+
+	
+</div><!-- #page-wrapper -->
+
+
+<!-- start Simple Custom CSS and JS -->
+ 
+<center style="padding-bottom: 40px;">
+<script type="text/javascript">
+    google_ad_client = "ca-pub-4601138099025729";
+    google_ad_slot = "6251397012";
+    google_ad_width = 970;
+    google_ad_height = 250;
+</script>
+<!-- footer banner -->
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/f(4).txt">
+</script><ins id="aswift_0_expand" style="display: inline-table; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 970px; background-color: transparent;" data-ad-slot="6251397012" data-overlap-observer-io="false"><ins id="aswift_0_anchor" style="display: block; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 970px; background-color: transparent; overflow: hidden; opacity: 0;"><iframe width="970" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:970px;height:250px;" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/saved_resource.html"></iframe></ins></ins>
+</center><!-- end Simple Custom CSS and JS -->
+
+<div id="insert_math-dialog" title="Inserting math" data-title="Inserting math" data-title-edit="Editing math">
+
+    <div class="insert_math-display-mode-container insert_math-container">
+        <div class="insert_math-label">Insert math as</div>
+        <div class="insert_math-display-block insert_math-button insert_math-checked">Block</div>
+        <div class="insert_math-display-inline insert_math-button">Inline</div>
+    </div>
+
+    <div class="insert_math-additional-settings-container insert_math-container">
+        <div class="insert_math-additional-settings-header">Additional settings</div>
+
+        <div class="insert_math-additional-settings">
+
+            <div class="insert_math-color-container insert_math-container">
+                <div class="insert_math-label">Formula color</div>
+                <div class="insert_math-color-default insert_math-button insert_math-checked">Text color</div>
+                <div class="insert_math-color-custom insert_math-button" contenteditable="true" style="color: #333333;">#333333</div>
+            </div>
+
+            <div class="insert_math-id-container insert_math-container">
+                <label for="insert_math-formula-id" class="insert_math-label">Formula ID</label>
+                <input type="text" id="insert_math-formula-id">
+            </div>
+
+            <div class="insert_math-classes-container insert_math-container">
+                <label for="insert_math-formula-classes" class="insert_math-label">Formula classes</label>
+                <input type="text" id="insert_math-formula-classes">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="insert_math-expression-container insert_math-container">
+        <div class="insert_math-expression-tip">
+            Type math using <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#Symbols" target="_blank">LaTeX</a>        </div>
+        <textarea id="insert_math-expression" class="insert_math-expression" rows="3" placeholder="Start typing math here..."></textarea>
+    </div>
+
+    <div class="insert_math-preview-container insert_math-container">
+        <div class="insert_math-preview-header">
+            Preview            <span class="insert_math-preview-icon dashicons dashicons-update"></span>
+        </div>
+        <div class="insert_math-preview">
+            <div id="insert_math-preview" class="insert_math-preview-math"><span class="MathJax_Preview" style="display: none;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style=""><nobr><span class="math" id="MathJax-Span-89" style="width: 0em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(3.785em, 1000em, 4.17em, -999.997em); top: -3.971em; left: 0em;"><span class="mrow" id="MathJax-Span-90"><span class="texatom" id="MathJax-Span-91"><span class="mrow" id="MathJax-Span-92"></span></span></span><span style="display: inline-block; width: 0px; height: 3.978em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.073em; border-left: 0px solid; width: 0px; height: 0.158em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-3">{}</script></div>
+            <div class="insert_math-preview-empty">Nothing to preview</div>
+        </div>
+    </div>
+
+    <div class="insert_math-insert" data-value="Insert" data-value-edit="Edit">Insert</div>
+
+</div>
+
+<a href="http://datachallenge.kr/challenge19/convergence-security/network/evaluation/#" id="scroll-to-top" class="scroll-to-top" title="Back To Top"><span class="vantage-icon-arrow-up"></span></a>				<style type="text/css" media="all" id="siteorigin-panels-layouts-footer">/* Layout w5d886871ebf93 */ #pgc-w5d886871ebf93-0-0 { width:100%;width:calc(100% - ( 0 * 30px ) ) } #pl-w5d886871ebf93 .so-panel { margin-bottom:35px } #pl-w5d886871ebf93 .so-panel:last-child { margin-bottom:0px } #pg-w5d886871ebf93-0.panel-no-style, #pg-w5d886871ebf93-0.panel-has-style > .panel-row-style { -webkit-align-items:flex-start;align-items:flex-start } @media (max-width:780px){ #pg-w5d886871ebf93-0.panel-no-style, #pg-w5d886871ebf93-0.panel-has-style > .panel-row-style { -webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column } #pg-w5d886871ebf93-0 .panel-grid-cell { margin-right:0 } #pg-w5d886871ebf93-0 .panel-grid-cell { width:100% } #pl-w5d886871ebf93 .panel-grid-cell { padding:0 } #pl-w5d886871ebf93 .panel-grid .panel-grid-cell-empty { display:none } #pl-w5d886871ebf93 .panel-grid .panel-grid-cell-mobile-last { margin-bottom:0px }  } </style><link rel="stylesheet" id="siteorigin-panels-front-css" href="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/front-flex.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/datachallenge.kr\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/scripts.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/jquery.form.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/core.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/widget.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/mouse.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/resizable.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/draggable.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/button.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/position.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/dialog.min.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/team.min.js.다운로드"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var kboard_settings = {"version":"5.3.4","home_url":"\/","site_url":"\/","post_url":"http:\/\/datachallenge.kr\/wp-admin\/admin-post.php","alax_url":"http:\/\/datachallenge.kr\/wp-admin\/admin-ajax.php","plugin_url":"http:\/\/datachallenge.kr\/wp-content\/plugins\/kboard","media_group":"5e0a118547cc9","ajax_security":"d8e7f3d6c4"};
+var kboard_localize_strings = {"kboard_add_media":"KBoard \ubbf8\ub514\uc5b4 \ucd94\uac00","next":"\ub2e4\uc74c","prev":"\uc774\uc804","please_enter_the_title":"\uc81c\ubaa9\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_author":"\uc791\uc131\uc790\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_password":"\ube44\ubc00\ubc88\ud638\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_CAPTCHA":"\uc606\uc5d0 \ubcf4\uc774\ub294 \ubcf4\uc548\ucf54\ub4dc\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_name":"\uc774\ub984\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_email":"\uc774\uba54\uc77c\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","you_have_already_voted":"\uc774\ubbf8 \ud22c\ud45c\ud588\uc2b5\ub2c8\ub2e4.","please_wait":"\uae30\ub2e4\ub824\uc8fc\uc138\uc694.","newest":"\ucd5c\uc2e0\uc21c","best":"\ucd94\ucc9c\uc21c","updated":"\uc5c5\ub370\uc774\ud2b8\uc21c","viewed":"\uc870\ud68c\uc21c","yes":"\uc608","no":"\uc544\ub2c8\uc694","did_it_help":"\ub3c4\uc6c0\uc774 \ub418\uc5c8\ub098\uc694?","hashtag":"\ud574\uc2dc\ud0dc\uadf8","tag":"\ud0dc\uadf8","add_a_tag":"\ud0dc\uadf8 \ucd94\uac00","removing_tag":"\ud0dc\uadf8 \uc0ad\uc81c","changes_you_made_may_not_be_saved":"\ubcc0\uacbd\uc0ac\ud56d\uc774 \uc800\uc7a5\ub418\uc9c0 \uc54a\uc744 \uc218 \uc788\uc2b5\ub2c8\ub2e4.","email":"\uc774\uba54\uc77c","address":"\uc8fc\uc18c","postcode":"\uc6b0\ud3b8\ubc88\ud638","phone_number":"\ud734\ub300\ud3f0\ubc88\ud638","mobile_phone":"\ud734\ub300\ud3f0\ubc88\ud638","phone":"\ud734\ub300\ud3f0\ubc88\ud638","company_name":"\ud68c\uc0ac\uba85","vat_number":"\uc0ac\uc5c5\uc790\ub4f1\ub85d\ubc88\ud638","bank_account":"\uc740\ud589\uacc4\uc88c","name_of_deposit":"\uc785\uae08\uc790\uba85","find":"\ucc3e\uae30","rate":"\ub4f1\uae09","ratings":"\ub4f1\uae09","waiting":"\ub300\uae30","complete":"\uc644\ub8cc","question":"\uc9c8\ubb38","answer":"\ub2f5\ubcc0","notify_me_of_new_comments_via_email":"\uc774\uba54\uc77c\ub85c \uc0c8\ub85c\uc6b4 \ub313\uae00 \uc54c\ub9bc \ubc1b\uae30","ask_question":"\uc9c8\ubb38\ud558\uae30","categories":"\uce74\ud14c\uace0\ub9ac","pages":"\ud398\uc774\uc9c0","all_products":"\uc804\uccb4\uc0c1\ud488","your_orders":"\uc8fc\ubb38\uc870\ud68c","your_sales":"\ud310\ub9e4\uc870\ud68c","my_orders":"\uc8fc\ubb38\uc870\ud68c","my_sales":"\ud310\ub9e4\uc870\ud68c","new_product":"\uc0c1\ud488\ub4f1\ub85d","edit_product":"\uc0c1\ud488\uc218\uc815","delete_product":"\uc0c1\ud488\uc0ad\uc81c","seller":"\ud310\ub9e4\uc790","period":"\uae30\uac04","period_of_use":"\uc0ac\uc6a9\uae30\uac04","last_updated":"\uc5c5\ub370\uc774\ud2b8 \ub0a0\uc9dc","list_price":"\uc815\uc0c1\uac00\uaca9","price":"\ud310\ub9e4\uac00\uaca9","total_price":"\ucd1d \uac00\uaca9","amount":"\uacb0\uc81c\uae08\uc561","quantity":"\uc218\ub7c9","use_points":"\ud3ec\uc778\ud2b8 \uc0ac\uc6a9","my_points":"\ub0b4 \ud3ec\uc778\ud2b8","available_points":"\uc0ac\uc6a9 \uac00\ub2a5 \ud3ec\uc778\ud2b8","apply_points":"\uc801\uc6a9\ub41c \ud3ec\uc778\ud2b8","buy_it_now":"\uad6c\ub9e4\ud558\uae30","sold_out":"\ud488\uc808","for_free":"\ubb34\ub8cc","pay_s":"%s \uacb0\uc81c","payment_method":"\uacb0\uc81c\uc218\ub2e8","credit_card":"\uc2e0\uc6a9\uce74\ub4dc","make_a_deposit":"\ubb34\ud1b5\uc7a5\uc785\uae08","reward_point":"\uc801\ub9bd \ud3ec\uc778\ud2b8","download_expiry":"\ub2e4\uc6b4\ub85c\ub4dc \uae30\uac04","checkout":"\uc8fc\ubb38\uc815\ubcf4\ud655\uc778","buyer_information":"\uc8fc\ubb38\uc790","applying_cash_receipts":"\ud604\uae08\uc601\uc218\uc99d \uc2e0\uccad","privacy_policy":"\uac1c\uc778 \uc815\ubcf4 \uc815\ucc45","i_agree_to_the_privacy_policy":"\uac1c\uc778 \uc815\ubcf4 \uc815\ucc45\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.","i_confirm_the_terms_of_the_transaction_and_agree_to_the_payment_process":"\uac70\ub798\uc870\uac74\uc744 \ud655\uc778\ud588\uc73c\uba70 \uacb0\uc81c\uc9c4\ud589\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.","today":"\uc624\ub298","yesterday":"\uc5b4\uc81c","this_month":"\uc774\ubc88\ub2ec","last_month":"\uc9c0\ub09c\ub2ec","last_30_days":"\ucd5c\uadfc30\uc77c","agree":"\ucc2c\uc131","disagree":"\ubc18\ub300","opinion":"\uc758\uacac"};
+var kboard_comments_localize_strings = {"reply":"\ub2f5\uae00","cancel":"\ucde8\uc18c","please_enter_the_author":"\uc791\uc131\uc790\uba85\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_password":"\ube44\ubc00\ubc88\ud638\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_CAPTCHA":"\ubcf4\uc548\ucf54\ub4dc\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_content":"\ub0b4\uc6a9\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","are_you_sure_you_want_to_delete":"\uc0ad\uc81c \ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?","please_wait":"\uc7a0\uc2dc\ub9cc \uae30\ub2e4\ub824\uc8fc\uc138\uc694.","email":"\uc774\uba54\uc77c","address":"\uc8fc\uc18c","postcode":"\uc6b0\ud3b8\ubc88\ud638","phone_number":"\uc5f0\ub77d\ucc98","find":"\ucc3e\uae30","rate":"\ub4f1\uae09","ratings":"\ub4f1\uae09","waiting":"\ub300\uae30","complete":"\uc644\ub8cc","question":"\uc9c8\ubb38","answer":"\ub2f5\ubcc0","notify_me_of_new_comments_via_email":"\uc774\uba54\uc77c\ub85c \uc0c8\ub85c\uc6b4 \ub313\uae00 \uc54c\ub9bc \ubc1b\uae30"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/script.js.다운로드"></script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/hoverIntent.min.js.다운로드"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var megamenu = {"timeout":"300","interval":"100"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/maxmegamenu.js.다운로드"></script>
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main, sans-serif;"></div></div><iframe id="google_osd_static_frame_2868147399017" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/saved_resource(1).html"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/saved_resource(2).html"></iframe></ins></ins></ins></body><iframe id="google_esf" name="google_esf" src="./AI 기반 네트워크 위협 탐지 평가방법 – 정보보호 R&amp;D 데이터 챌린지 2019_files/zrt_lookup.html" data-ad-client="ca-pub-4601138099025729" style="display: none;"></iframe></html>
